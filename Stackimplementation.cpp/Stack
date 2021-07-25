@@ -10,9 +10,9 @@ int * arr;                // Dynamic Array
 int top;
 
 public:
-stack(){
+stack(){                          //Constructor
     
-    arr = new int[n];
+    arr = new int[n];               // Array memory allocate
     top =-1;
         
         }
