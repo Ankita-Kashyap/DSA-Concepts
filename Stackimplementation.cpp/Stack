@@ -50,6 +50,10 @@ stack(){                          //Constructor
         return arr[top];
         }
         
+        bool empty(){
+        return top ==-1;
+        }
+        
 
 };
 
@@ -60,5 +64,10 @@ int main()
     st.push(1);
     st.push(2);
     st.push(3);
+    st.pop();
+    cout<<st.Top()<<endl;
+    st.pop();
+    st.pop();
+    cout<<st.empty()<<endl;
     return 0;
 }
