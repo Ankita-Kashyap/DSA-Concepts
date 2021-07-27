@@ -17,12 +17,12 @@ struct Node* head = NULL;
 void insert(int newdata)
 {
 
-    struct Node* newnode = (struct Node*) malloc(sizeof(struct Node));
-    newnode -> data = newdata;
+   struct Node* newNode = new Node;            //allocate memory for New node
+    newnode -> data = newdata;                   //assign data to new node
     newnode-> prev =NULL;
     newnode->next = head;
     if(head!= NULL)
-        head->prev = neewnode;
+        head->prev = newnode;
         head = newnode;
 
 }
