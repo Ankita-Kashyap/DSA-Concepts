@@ -1,0 +1,127 @@
+/*
+PUSH
+1)Create a node
+2)Top of stack = Head ptr of LL = NULL = 0
+3)NewNode ptr
+4)Node is Pushed //repeat from here
+5)Top Value changed
+6)create Node  //to here
+POP
+1)Make a temp ptr
+2)temp = top
+3)top = top-> link
+4)delete link
+
+
+*/
+
+
+
+
+
+#include<iostream>
+using namespace std;
+
+struct Node                     //structure of node
+{
+    int data;
+    Node*link;
+};
+
+Node*top = NULL;                    //top ptr is null
+
+bool isEmpty()                           //Function to insert an element in stack
+{
+    if(top == NULL)
+    {
+        return true;
+
+    }
+    else
+    {
+        return false;
+    }
+}
+    //Function to insert an element in stack
+
+    void push(int value)
+    {
+        Node*newnode = new Node();
+        newnode->data = value;
+        newnode->link =top;
+        top = newnode;
+    }
+
+    //Function to delete an element from the stack
+    void pop()
+    {
+        if(isEmpty())
+        {
+
+            cout<<"Stack is Empty";
+        }
+        else
+        {
+            Node*temp =top;
+            top = top->link;
+            delete(temp);
+        }
+    }
+
+    void showTop()
+    {
+        if(isEmpty())
+        {
+            cout<<"Stack is Empty";
+
+        }
+        else
+        {
+            cout<<"Element at top is :"<<top->data;
+        }
+    }
+    void displayStack()
+    {
+        if(isEmpty())
+        {
+            cout<<"Stack is Empty";
+        }
+        else
+        {
+            Node*a = top;
+            while(a!=NULL)
+            {
+                cout<<a->data<<" ";
+                a = a->link;
+            }
+            cout<<"\n";
+        }
+    }
+
+
+ int main()
+ {
+     int choice ,flag =1,value;
+
+     while(flag == 1)
+     {
+         cout<<"\n1.Push 2.Pop 3.showTop 4.displayStack 5.exit\n";
+         cin>>choice;
+         switch(choice)
+         {
+             case 1: cout<<"Enter Value : \n";
+                     cin>>(value);
+                     push(value);
+                     break;
+             case 2:pop();
+                    break;
+             case 3: showTop();
+                     break;
+            case 4: displayStack();
+                    break;
+            case 5: flag = 0;
+                    break;
+         }
+     }
+     return 0;
+ }
